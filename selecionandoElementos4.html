@@ -22,7 +22,54 @@
         <p>Fim</p>
     </div>
     <script>
-        // ...
+        function log() {
+            console.log(this)
+        }
+
+        HTMLCollection.prototype.log = log
+        HTMLElement.prototype.log = log
+        NodeList.prototype.log = log
+        Node.prototype.log = log
+
+        const lista = document.querySelector('div ul')
+
+        // parentNode para acessar o pai da lista (div)
+        lista.parentNode.log()
+
+        // childNodes para acessar os filhos da ul
+        // retorna além dos li os text
+        lista.childNodes.log()
+
+        const primeiro = lista.firstChild
+        primeiro.log()
+        
+        // próximo irmão do primeiro elemento textual
+        /// Pedro
+        primeiro.nextSibling.log()
+
+        const ultimo = lista.lastChild
+        ultimo.log()
+
+        // irmão anterior do elemento ultimo
+        ultimo.previousSibling.log()
+
+        // pega os filhos da lista
+        lista.children.log()
+
+        // acessa o primeiro elemento (tag) da lista
+        // e não os textos, como em childNodes
+        lista.firstElementChild.log()
+
+        lista.lastElementChild.log()
+
+        // elemento irmão anterior do elemento pai da lista
+        // a div Início
+        lista.parentNode.previousElementSibling.log()
+
+        lista.parentNode.nextElementSibling.log()
+
+        // ideal é ir direto ao caminho
+        document.querySelectorAll('div ul li').log()
     </script>
 </body>
 
