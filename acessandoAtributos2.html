@@ -17,7 +17,45 @@
         </ul>
     </div>
     <script>
-        // ...
+        const lista = document.querySelector('div ul[destino="escritório"]')
+
+        console.log(lista)
+        console.log(lista.childNodes)
+        console.log(lista.id)
+
+        // não funciona para prop personalizada
+        console.log(lista.destino) // undefined
+
+        console.log(lista.getAttribute('destino')) // escritório
+
+        console.log(lista.hasAttribute('destino')) // true
+
+        lista.setAttribute('destino', 'empresa') // altera atributo
+        lista.setAttribute('status', 'aberto') // cria novo atributo
+
+        lista.removeAttribute('destino')
+
+
+        // os atributos que começam com data- são tratados diferentes
+        // considerados na especificação
+        console.log(lista.dataset) // urgencia: "5"
+
+        lista.setAttribute('data-blabla', 'opa')
+
+        console.log(lista.dataset) // {urgencia: "5", blabla: "opa"}
+
+        lista.dataset.urgencia = 4
+        console.log(lista.dataset.urgencia) // 4
+        console.log(lista.getAttribute('data-urgencia'))
+
+        // cuidado com palavra reservada
+        const label = document.querySelector('label')
+
+        console.log(label.for) // undefined
+        
+        // nesse caso o correto é htmlFor com a notação .
+        console.log(label.htmlFor) // compras
+        console.log(label.getAttribute('for')) // compras
     </script>
 </body>
 

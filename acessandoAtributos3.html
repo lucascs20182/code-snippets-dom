@@ -16,7 +16,24 @@
         </ul>
     </div>
     <script>
-        // ...
+        const lista = document.querySelector('#compras')
+
+        /*  formas de adquirir atributo
+            somente leitura
+            não dá para settar os valores de atributos assim */
+
+        console.log(lista.attributes)
+        console.log(lista.attributes[1]) // forma 1
+        console.log(lista.attributes.destino) // forma 2
+        
+        /*  não funciona porque - é interpretado como menos
+            não é permitido em variáveis */
+        //console.log(lista.attributes.data-urgencia)
+
+        console.log(lista.attributes['data-urgencia'])
+
+        console.log(lista.attributes[0])
+        console.log(lista.attributes.id)
     </script>
 </body>
 
